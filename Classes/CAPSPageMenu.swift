@@ -90,9 +90,13 @@ public class MenuItemView: UIView {
 		}
 
 		iconView = view
-		let offset = titleLabel.intrinsicContentSize().width / 4
+		let offset = (titleLabel.frame.width - titleLabel.intrinsicContentSize().width) / 3
 		view.translatesAutoresizingMaskIntoConstraints = false
 		addSubview(view)
+
+		if let view = view as? UILabel {
+			view.textColor = titleLabel.textColor
+		}
 
 		if position == .Right {
 
