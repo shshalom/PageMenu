@@ -83,7 +83,7 @@ public class MenuItemView: UIView {
 		self.addSubview(titleLabel!)
 	}
 
-	func setIcon(view: UIView, position: IconLocation = .Right) {
+	public func setIcon(view: UIView, position: IconLocation = .Right) {
 
 		guard let titleLabel = titleLabel else {
 			return
