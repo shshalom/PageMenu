@@ -19,6 +19,23 @@
 
 import UIKit
 
+private class NSLayoutConstraints {
+
+	class func positionLeftCenter(subview: UIView, ofView: UIView, offset: CGFloat = 0) {
+
+		NSLayoutConstraint(item: subview, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: ofView, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: offset).active = true
+
+		NSLayoutConstraint(item: subview, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: ofView, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0.0).active = true
+	}
+
+	class func positionRightCenter(subview: UIView, ofView: UIView, offset: CGFloat = 0) {
+
+		NSLayoutConstraint(item: subview, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: ofView, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: offset).active = true
+
+		NSLayoutConstraint(item: subview, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: ofView, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0).active = true
+	}
+}
+
 @objc public protocol CAPSPageMenuDelegate {
 	// MARK: - Delegate functions
 
@@ -26,11 +43,29 @@ import UIKit
 	optional func didMoveToPage(controller: UIViewController, index: Int)
 }
 
-class MenuItemView: UIView {
+public class MenuItemView: UIView {
+
+	public enum IconLocation {
+
+		case Left, Right
+	}
 	// MARK: - Menu item view
 
+	private(set) var iconView: UIView?
 	var titleLabel: UILabel?
 	var menuItemSeparator: UIView?
+
+	var contentColor: UIColor? {
+		get {
+			return titleLabel?.textColor
+		}
+		set {
+			titleLabel?.textColor = newValue
+			if let iconView = iconView as? UILabel {
+				iconView.textColor = newValue
+			}
+		}
+	}
 
 	func setUpMenuItemView(menuItemWidth: CGFloat, menuScrollViewHeight: CGFloat, indicatorHeight: CGFloat, separatorPercentageHeight: CGFloat, separatorWidth: CGFloat, separatorRoundEdges: Bool, menuItemSeparatorColor: UIColor) {
 		titleLabel = UILabel(frame: CGRectMake(0.0, 0.0, menuItemWidth, menuScrollViewHeight - indicatorHeight))
@@ -48,11 +83,33 @@ class MenuItemView: UIView {
 		self.addSubview(titleLabel!)
 	}
 
+	func setIcon(view: UIView, position: IconLocation = .Right) {
+
+		guard let titleLabel = titleLabel else {
+			return
+		}
+
+		iconView = view
+		let offset = titleLabel.intrinsicContentSize().width / 4
+		view.translatesAutoresizingMaskIntoConstraints = false
+		addSubview(view)
+
+		if position == .Right {
+
+			NSLayoutConstraints.positionRightCenter(view, ofView: titleLabel, offset: -offset)
+
+		} else {
+
+			NSLayoutConstraints.positionLeftCenter(view, ofView: titleLabel, offset: -offset)
+		}
+	}
+
 	func setTitleText(text: NSString) {
-		if titleLabel != nil {
-			titleLabel!.text = text as String
-			titleLabel!.numberOfLines = 0
-			titleLabel!.sizeToFit()
+
+		if let titleLabel = titleLabel {
+			titleLabel.text = text as String
+			titleLabel.numberOfLines = 0
+			titleLabel.sizeToFit()
 		}
 	}
 }
@@ -91,7 +148,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 	let menuScrollView = UIScrollView()
 	let controllerScrollView = UIScrollView()
 	var controllerArray: [UIViewController] = []
-	var menuItems: [MenuItemView] = []
+	public var menuItems: [MenuItemView] = []
 	var menuItemWidths: [CGFloat] = []
 
 	public var menuHeight: CGFloat = 34.0
@@ -316,7 +373,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 
 	func configureUserInterface() {
 		// Add tap gesture recognizer to controller scroll view to recognize menu item selection
-		let menuItemTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleMenuItemTap:"))
+		let menuItemTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CAPSPageMenu.handleMenuItemTap(_:)))
 		menuItemTapGestureRecognizer.numberOfTapsRequired = 1
 		menuItemTapGestureRecognizer.numberOfTouchesRequired = 1
 		menuItemTapGestureRecognizer.delegate = self
@@ -411,7 +468,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 			menuItemView.titleLabel!.font = menuItemFont
 
 			menuItemView.titleLabel!.textAlignment = NSTextAlignment.Center
-			menuItemView.titleLabel!.textColor = unselectedMenuItemLabelColor
+			menuItemView.contentColor = unselectedMenuItemLabelColor
 
 			// **************************拡張*************************************
 			menuItemView.titleLabel!.adjustsFontSizeToFitWidth = titleTextSizeBasedOnMenuItemWidth
@@ -446,7 +503,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 		// Set selected color for title label of selected menu item
 		if menuItems.count > 0 {
 			if menuItems[currentPageIndex].titleLabel != nil {
-				menuItems[currentPageIndex].titleLabel!.textColor = selectedMenuItemLabelColor
+				menuItems[currentPageIndex].contentColor = selectedMenuItemLabelColor
 			}
 		}
 
@@ -731,8 +788,8 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 				// Switch newly selected menu item title label to selected color and old one to unselected color
 				if self.menuItems.count > 0 {
 					if self.menuItems[self.lastPageIndex].titleLabel != nil && self.menuItems[self.currentPageIndex].titleLabel != nil {
-						self.menuItems[self.lastPageIndex].titleLabel!.textColor = self.unselectedMenuItemLabelColor
-						self.menuItems[self.currentPageIndex].titleLabel!.textColor = self.selectedMenuItemLabelColor
+						self.menuItems[self.lastPageIndex].contentColor = self.unselectedMenuItemLabelColor
+						self.menuItems[self.currentPageIndex].contentColor = self.selectedMenuItemLabelColor
 					}
 				}
 			})
@@ -838,7 +895,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 				}
 
 				let timerInterval: NSTimeInterval = Double(scrollAnimationDurationOnMenuItemTap) * 0.001
-				tapTimer = NSTimer.scheduledTimerWithTimeInterval(timerInterval, target: self, selector: "scrollViewDidEndTapScrollingAnimation", userInfo: nil, repeats: false)
+				tapTimer = NSTimer.scheduledTimerWithTimeInterval(timerInterval, target: self, selector: #selector(CAPSPageMenu.scrollViewDidEndTapScrollingAnimation), userInfo: nil, repeats: false)
 			}
 		}
 	}
@@ -898,7 +955,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 					item.titleLabel!.frame = CGRectMake(0.0, 0.0, self.view.frame.width / CGFloat(controllerArray.count), menuHeight)
 					item.menuItemSeparator!.frame = CGRectMake(item.frame.width - (menuItemSeparatorWidth / 2), item.menuItemSeparator!.frame.origin.y, item.menuItemSeparator!.frame.width, item.menuItemSeparator!.frame.height)
 
-					index++
+					index += 1
 				}
 			} else if menuItemWidthBasedOnTitleTextWidth && centerMenuItems {
 				self.configureMenuItemWidthBasedOnTitleTextWidthAndCenterMenuItems()
@@ -924,7 +981,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 						item.frame = CGRectMake(menuItemWidth * CGFloat(index) + menuMargin * CGFloat(index + 1) + startingMenuMargin, 0.0, menuItemWidth, menuHeight)
 					}
 
-					index++
+					index += 1
 				}
 			}
 
