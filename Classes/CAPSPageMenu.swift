@@ -49,11 +49,10 @@ public class MenuItemView: UIView {
 
 		case Left, Right
 	}
-	// MARK: - Menu item view
 
-	private(set) var iconView: UIView?
-	var titleLabel: UILabel?
-	var menuItemSeparator: UIView?
+	private(set) public var iconView: UIView?
+	private(set) public var titleLabel: UILabel?
+	private(set) public var menuItemSeparator: UIView?
 
 	var contentColor: UIColor? {
 		get {
@@ -68,6 +67,7 @@ public class MenuItemView: UIView {
 	}
 
 	func setUpMenuItemView(menuItemWidth: CGFloat, menuScrollViewHeight: CGFloat, indicatorHeight: CGFloat, separatorPercentageHeight: CGFloat, separatorWidth: CGFloat, separatorRoundEdges: Bool, menuItemSeparatorColor: UIColor) {
+
 		titleLabel = UILabel(frame: CGRectMake(0.0, 0.0, menuItemWidth, menuScrollViewHeight - indicatorHeight))
 
 		menuItemSeparator = UIView(frame: CGRectMake(menuItemWidth - (separatorWidth / 2), floor(menuScrollViewHeight * ((1.0 - separatorPercentageHeight) / 2.0)), separatorWidth, floor(menuScrollViewHeight * separatorPercentageHeight)))
@@ -78,14 +78,17 @@ public class MenuItemView: UIView {
 		}
 
 		menuItemSeparator!.hidden = true
-		self.addSubview(menuItemSeparator!)
 
+		self.addSubview(menuItemSeparator!)
 		self.addSubview(titleLabel!)
 	}
 
-	public func setIcon(view: UIView, position: IconLocation = .Right) {
+	public func setIcon(view: UIView?, position: IconLocation = .Right) {
 
-		guard let titleLabel = titleLabel else {
+		iconView?.removeFromSuperview()
+		iconView = nil
+
+		guard let titleLabel = titleLabel, view = view else {
 			return
 		}
 
@@ -496,7 +499,9 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 			menuScrollView.addSubview(menuItemView)
 			menuItems.append(menuItemView)
 
-			index++
+			dataSource?.pageMenu?(self, didSetupMenuItem: menuItemView, atIndex: Int(index))
+
+			index += 1
 		}
 
 		// Set new content size for menu scroll view if needed
