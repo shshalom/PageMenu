@@ -60,17 +60,16 @@ class ViewController: UIViewController {
 
 		// Initialize scroll menu
 		pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters)
-        
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
-        label.text = ":)"
-        label.textColor = .whiteColor()
-        
-        if let item = pageMenu?.menuItems.first {
-            
-            item.setIcon(label)
-        }
-        
-        
+
+		let label = UILabel(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+		label.text = ":)"
+		label.textColor = .whiteColor()
+
+		if let item = pageMenu?.menuItems.first {
+
+			item.setIcon(label)
+		}
+
 		self.addChildViewController(pageMenu!)
 		self.view.addSubview(pageMenu!.view)
 

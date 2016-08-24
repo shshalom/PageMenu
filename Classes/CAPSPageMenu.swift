@@ -21,18 +21,11 @@ import UIKit
 
 private class NSLayoutConstraints {
 
-	class func positionLeftCenter(subview: UIView, ofView: UIView, offset: CGFloat = 0) {
+	class func positionCenter(subview: UIView, ofView: UIView, xOffset: CGFloat = 0, yOffset: CGFloat = 0) {
 
-		NSLayoutConstraint(item: subview, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: ofView, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: offset).active = true
+		NSLayoutConstraint(item: subview, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: ofView, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: xOffset).active = true
 
-		NSLayoutConstraint(item: subview, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: ofView, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0.0).active = true
-	}
-
-	class func positionRightCenter(subview: UIView, ofView: UIView, offset: CGFloat = 0) {
-
-		NSLayoutConstraint(item: subview, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: ofView, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: offset).active = true
-
-		NSLayoutConstraint(item: subview, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: ofView, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0).active = true
+		NSLayoutConstraint(item: subview, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: ofView, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: yOffset).active = true
 	}
 }
 
@@ -83,7 +76,7 @@ public class MenuItemView: UIView {
 		self.addSubview(titleLabel!)
 	}
 
-	public func setIcon(view: UIView?, position: IconLocation = .Right) {
+	public func setIcon(view: UIView?, position: IconLocation = .Right, offset: CGPoint = CGPoint(x: 0, y: 0)) {
 
 		iconView?.removeFromSuperview()
 		iconView = nil
@@ -93,7 +86,6 @@ public class MenuItemView: UIView {
 		}
 
 		iconView = view
-		let offset = (titleLabel.frame.width - titleLabel.intrinsicContentSize().width) / 3
 		view.translatesAutoresizingMaskIntoConstraints = false
 		addSubview(view)
 
@@ -101,23 +93,14 @@ public class MenuItemView: UIView {
 			view.textColor = titleLabel.textColor
 		}
 
-		if position == .Right {
+		let yOffset = offset.y
+		var xOffset = offset.x + titleLabel.intrinsicContentSize().width / 2
 
-			NSLayoutConstraints.positionRightCenter(view, ofView: titleLabel, offset: -offset)
+		if position == .Left {
 
-		} else {
-
-			NSLayoutConstraints.positionLeftCenter(view, ofView: titleLabel, offset: -offset)
+			xOffset = offset.x - titleLabel.intrinsicContentSize().width / 2
 		}
-	}
-
-	func setTitleText(text: NSString) {
-
-		if let titleLabel = titleLabel {
-			titleLabel.text = text as String
-			titleLabel.numberOfLines = 0
-			titleLabel.sizeToFit()
-		}
+		NSLayoutConstraints.positionCenter(view, ofView: titleLabel, xOffset: xOffset, yOffset: yOffset)
 	}
 }
 
