@@ -499,8 +499,6 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 			menuScrollView.addSubview(menuItemView)
 			menuItems.append(menuItemView)
 
-			dataSource?.pageMenu?(self, didSetupMenuItem: menuItemView, atIndex: Int(index))
-
 			index += 1
 		}
 
