@@ -141,7 +141,13 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 	public var menuItems: [MenuItemView] = []
 	var menuItemWidths: [CGFloat] = []
 
-	public var menuHeight: CGFloat = 34.0
+    public var menuOpenedHeight:CGFloat = 34.0
+    public var menuHeight: CGFloat = 34.0 {
+        didSet {
+            menuOpenedHeight = menuHeight
+        }
+    }
+    
 	public var menuMargin: CGFloat = 15.0
 	public var menuItemWidth: CGFloat = 111.0
 	public var selectionIndicatorHeight: CGFloat = 3.0
@@ -192,6 +198,9 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 	public weak var delegate: CAPSPageMenuDelegate?
 
 	var tapTimer: NSTimer?
+    
+    var menuScrollView_constraint:[NSLayoutConstraint]?
+    var menuBottomHairline_constraint:[NSLayoutConstraint]?
 
 	enum CAPSPageMenuScrollDirection: Int {
 		case Left
@@ -329,6 +338,8 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 
 		let menuScrollView_constraint_H: Array = NSLayoutConstraint.constraintsWithVisualFormat("H:|[menuScrollView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
 		let menuScrollView_constraint_V: Array = NSLayoutConstraint.constraintsWithVisualFormat("V:|[menuScrollView(\(menuHeight))]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
+        
+        menuScrollView_constraint = menuScrollView_constraint_V
 
 		self.view.addConstraints(menuScrollView_constraint_H)
 		self.view.addConstraints(menuScrollView_constraint_V)
@@ -343,6 +354,8 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 
 			let menuBottomHairline_constraint_H: Array = NSLayoutConstraint.constraintsWithVisualFormat("H:|[menuBottomHairline]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["menuBottomHairline": menuBottomHairline])
 			let menuBottomHairline_constraint_V: Array = NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(menuHeight)-[menuBottomHairline(0.5)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["menuBottomHairline": menuBottomHairline])
+            
+            menuBottomHairline_constraint = menuBottomHairline_constraint_V
 
 			self.view.addConstraints(menuBottomHairline_constraint_H)
 			self.view.addConstraints(menuBottomHairline_constraint_V)
@@ -1045,4 +1058,30 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 			})
 		}
 	}
+    
+    /**
+     Change menu height
+     
+     - parameter height: new height
+     */
+    private func setMenuHeight(height:CGFloat) {
+        
+        let newVC = controllerArray[0]
+        menuScrollView_constraint?[1].constant = height //= menuScrollView_constraint_V
+        menuBottomHairline_constraint?[0].constant = height
+        
+        UIView.animateWithDuration(0.4) {
+            
+            self.view.layoutIfNeeded()
+            newVC.view.frame = CGRectMake(self.view.frame.width * CGFloat(0), height, self.view.frame.width, self.view.frame.height - height)
+        }
+    }
+    
+    func show() {
+        setMenuHeight(menuOpenedHeight)
+    }
+    
+    func hide() {
+        setMenuHeight(0)
+    }
 }
