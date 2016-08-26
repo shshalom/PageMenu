@@ -1077,11 +1077,11 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
         }
     }
     
-    func show() {
+    public func show() {
         setMenuHeight(menuOpenedHeight)
     }
     
-    func hide() {
+    public func hide() {
         setMenuHeight(0)
     }
 }
