@@ -105,30 +105,30 @@ public class MenuItemView: UIView {
 }
 
 public enum CAPSPageMenuOption {
-	case SelectionIndicatorHeight(CGFloat)
-	case MenuItemSeparatorWidth(CGFloat)
-	case ScrollMenuBackgroundColor(UIColor)
-	case ViewBackgroundColor(UIColor)
-	case BottomMenuHairlineColor(UIColor)
-	case SelectionIndicatorColor(UIColor)
-	case MenuItemSeparatorColor(UIColor)
-	case MenuMargin(CGFloat)
-	case MenuItemMargin(CGFloat)
-	case MenuHeight(CGFloat)
-	case SelectedMenuItemLabelColor(UIColor)
-	case UnselectedMenuItemLabelColor(UIColor)
-	case UseMenuLikeSegmentedControl(Bool)
-	case MenuItemSeparatorRoundEdges(Bool)
-	case MenuItemFont(UIFont)
-	case MenuItemSeparatorPercentageHeight(CGFloat)
-	case MenuItemWidth(CGFloat)
-	case EnableHorizontalBounce(Bool)
-	case AddBottomMenuHairline(Bool)
-	case MenuItemWidthBasedOnTitleTextWidth(Bool)
-	case TitleTextSizeBasedOnMenuItemWidth(Bool)
-	case ScrollAnimationDurationOnMenuItemTap(Int)
-	case CenterMenuItems(Bool)
-	case HideTopMenuBar(Bool)
+	case selectionIndicatorHeight(CGFloat)
+	case menuItemSeparatorWidth(CGFloat)
+	case scrollMenuBackgroundColor(UIColor)
+	case viewBackgroundColor(UIColor)
+	case bottomMenuHairlineColor(UIColor)
+	case selectionIndicatorColor(UIColor)
+	case menuItemSeparatorColor(UIColor)
+	case menuMargin(CGFloat)
+	case menuItemMargin(CGFloat)
+	case menuHeight(CGFloat)
+	case selectedMenuItemLabelColor(UIColor)
+	case unselectedMenuItemLabelColor(UIColor)
+	case useMenuLikeSegmentedControl(Bool)
+	case menuItemSeparatorRoundEdges(Bool)
+	case menuItemFont(UIFont)
+	case menuItemSeparatorPercentageHeight(CGFloat)
+	case menuItemWidth(CGFloat)
+	case enableHorizontalBounce(Bool)
+	case addBottomMenuHairline(Bool)
+	case menuItemWidthBasedOnTitleTextWidth(Bool)
+	case titleTextSizeBasedOnMenuItemWidth(Bool)
+	case scrollAnimationDurationOnMenuItemTap(Int)
+	case centerMenuItems(Bool)
+	case hideTopMenuBar(Bool)
 }
 
 public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
@@ -231,53 +231,53 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
 		if let options = pageMenuOptions {
 			for option in options {
 				switch (option) {
-				case let .SelectionIndicatorHeight(value):
+				case let .selectionIndicatorHeight(value):
 					selectionIndicatorHeight = value
-				case let .MenuItemSeparatorWidth(value):
+				case let .menuItemSeparatorWidth(value):
 					menuItemSeparatorWidth = value
-				case let .ScrollMenuBackgroundColor(value):
+				case let .scrollMenuBackgroundColor(value):
 					scrollMenuBackgroundColor = value
-				case let .ViewBackgroundColor(value):
+				case let .viewBackgroundColor(value):
 					viewBackgroundColor = value
-				case let .BottomMenuHairlineColor(value):
+				case let .bottomMenuHairlineColor(value):
 					bottomMenuHairlineColor = value
-				case let .SelectionIndicatorColor(value):
+				case let .selectionIndicatorColor(value):
 					selectionIndicatorColor = value
-				case let .MenuItemSeparatorColor(value):
+				case let .menuItemSeparatorColor(value):
 					menuItemSeparatorColor = value
-				case let .MenuMargin(value):
+				case let .menuMargin(value):
 					menuMargin = value
-				case let .MenuItemMargin(value):
+				case let .menuItemMargin(value):
 					menuItemMargin = value
-				case let .MenuHeight(value):
+				case let .menuHeight(value):
 					menuHeight = value
-				case let .SelectedMenuItemLabelColor(value):
+				case let .selectedMenuItemLabelColor(value):
 					selectedMenuItemLabelColor = value
-				case let .UnselectedMenuItemLabelColor(value):
+				case let .unselectedMenuItemLabelColor(value):
 					unselectedMenuItemLabelColor = value
-				case let .UseMenuLikeSegmentedControl(value):
+				case let .useMenuLikeSegmentedControl(value):
 					useMenuLikeSegmentedControl = value
-				case let .MenuItemSeparatorRoundEdges(value):
+				case let .menuItemSeparatorRoundEdges(value):
 					menuItemSeparatorRoundEdges = value
-				case let .MenuItemFont(value):
+				case let .menuItemFont(value):
 					menuItemFont = value
-				case let .MenuItemSeparatorPercentageHeight(value):
+				case let .menuItemSeparatorPercentageHeight(value):
 					menuItemSeparatorPercentageHeight = value
-				case let .MenuItemWidth(value):
+				case let .menuItemWidth(value):
 					menuItemWidth = value
-				case let .EnableHorizontalBounce(value):
+				case let .enableHorizontalBounce(value):
 					enableHorizontalBounce = value
-				case let .AddBottomMenuHairline(value):
+				case let .addBottomMenuHairline(value):
 					addBottomMenuHairline = value
-				case let .MenuItemWidthBasedOnTitleTextWidth(value):
+				case let .menuItemWidthBasedOnTitleTextWidth(value):
 					menuItemWidthBasedOnTitleTextWidth = value
-				case let .TitleTextSizeBasedOnMenuItemWidth(value):
+				case let .titleTextSizeBasedOnMenuItemWidth(value):
 					titleTextSizeBasedOnMenuItemWidth = value
-				case let .ScrollAnimationDurationOnMenuItemTap(value):
+				case let .scrollAnimationDurationOnMenuItemTap(value):
 					scrollAnimationDurationOnMenuItemTap = value
-				case let .CenterMenuItems(value):
+				case let .centerMenuItems(value):
 					centerMenuItems = value
-				case let .HideTopMenuBar(value):
+				case let .hideTopMenuBar(value):
 					hideTopMenuBar = value
 				}
 			}
