@@ -42,7 +42,7 @@
 		9E0B90671A468ED70095E919 /* woman3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E0B90521A468ED70095E919 /* woman3.jpg */; };
 		9E0B90681A468ED70095E919 /* woman4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E0B90531A468ED70095E919 /* woman4.jpg */; };
 		9E0B90691A468ED70095E919 /* woman5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E0B90541A468ED70095E919 /* woman5.jpg */; };
-		A6DA20511A5ECAA80048E0C0 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA20501A5ECAA80048E0C0 /* CAPSPageMenu.swift */; };
+		F023F2A01E6DBAAE000382EF /* PageMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F023F29F1E6DBAAE000382EF /* PageMenu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +95,7 @@
 		9E0B90521A468ED70095E919 /* woman3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woman3.jpg; sourceTree = "<group>"; };
 		9E0B90531A468ED70095E919 /* woman4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woman4.jpg; sourceTree = "<group>"; };
 		9E0B90541A468ED70095E919 /* woman5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woman5.jpg; sourceTree = "<group>"; };
-		A6DA20501A5ECAA80048E0C0 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenu.swift; path = ../../../../Classes/CAPSPageMenu.swift; sourceTree = "<group>"; };
+		F023F29F1E6DBAAE000382EF /* PageMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PageMenu.framework; path = "../../PageMenu/build/Debug-iphoneos/PageMenu.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F023F2A01E6DBAAE000382EF /* PageMenu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +123,7 @@
 				9E0B90071A468DC30095E919 /* PageMenuDemoMenuItemWidthBasedOnTitleText */,
 				9E0B901D1A468DC30095E919 /* PageMenuDemoMenuItemWidthBasedOnTitleTextTests */,
 				9E0B90061A468DC30095E919 /* Products */,
+				F023F29E1E6DBAAE000382EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,7 +144,6 @@
 				9E0B900E1A468DC30095E919 /* Main.storyboard */,
 				9E0B902E1A468E0C0095E919 /* Cells */,
 				9E0B902D1A468E040095E919 /* View Controllers */,
-				9E0B902A1A468DDE0095E919 /* CAPSPageMenu */,
 				9E0B90111A468DC30095E919 /* Images.xcassets */,
 				9E0B903F1A468EB20095E919 /* Images */,
 				9E0B90131A468DC30095E919 /* LaunchScreen.xib */,
@@ -174,14 +175,6 @@
 				9E0B901F1A468DC30095E919 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9E0B902A1A468DDE0095E919 /* CAPSPageMenu */ = {
-			isa = PBXGroup;
-			children = (
-				A6DA20501A5ECAA80048E0C0 /* CAPSPageMenu.swift */,
-			);
-			name = CAPSPageMenu;
 			sourceTree = "<group>";
 		};
 		9E0B902D1A468E040095E919 /* View Controllers */ = {
@@ -234,6 +227,14 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		F023F29E1E6DBAAE000382EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F023F29F1E6DBAAE000382EF /* PageMenu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,14 +279,17 @@
 		9E0B8FFD1A468DC30095E919 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CAPS;
 				TargetAttributes = {
 					9E0B90041A468DC30095E919 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0820;
 					};
 					9E0B90191A468DC30095E919 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 9E0B90041A468DC30095E919;
 					};
 				};
@@ -361,7 +365,6 @@
 			files = (
 				9E0B90351A468E760095E919 /* MoodCollectionViewCell.swift in Sources */,
 				9E0B900D1A468DC30095E919 /* ViewController.swift in Sources */,
-				A6DA20511A5ECAA80048E0C0 /* CAPSPageMenu.swift in Sources */,
 				9E0B900B1A468DC30095E919 /* AppDelegate.swift in Sources */,
 				9E0B903B1A468E8E0095E919 /* TestCollectionViewController.swift in Sources */,
 				9E0B903D1A468E8E0095E919 /* TestTableViewController.swift in Sources */,
@@ -420,15 +423,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -462,8 +469,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -471,6 +480,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -480,6 +490,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -488,9 +499,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PageMenuDemoMenuItemWidthBasedOnTitleText/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "caps.ua.edu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -499,9 +513,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PageMenuDemoMenuItemWidthBasedOnTitleText/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "caps.ua.edu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -520,7 +537,9 @@
 				);
 				INFOPLIST_FILE = PageMenuDemoMenuItemWidthBasedOnTitleTextTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "caps.ua.edu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PageMenuDemoMenuItemWidthBasedOnTitleText.app/PageMenuDemoMenuItemWidthBasedOnTitleText";
 			};
 			name = Debug;
@@ -535,7 +554,9 @@
 				);
 				INFOPLIST_FILE = PageMenuDemoMenuItemWidthBasedOnTitleTextTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "caps.ua.edu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PageMenuDemoMenuItemWidthBasedOnTitleText.app/PageMenuDemoMenuItemWidthBasedOnTitleText";
 			};
 			name = Release;

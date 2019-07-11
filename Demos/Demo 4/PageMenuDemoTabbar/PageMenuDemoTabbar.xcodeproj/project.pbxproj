@@ -12,7 +12,6 @@
 		A616A03E1A603D68008CE0F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A616A03D1A603D68008CE0F6 /* Images.xcassets */; };
 		A616A0411A603D68008CE0F6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A616A03F1A603D68008CE0F6 /* LaunchScreen.xib */; };
 		A616A04D1A603D69008CE0F6 /* PageMenuDemoTabbarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616A04C1A603D69008CE0F6 /* PageMenuDemoTabbarTests.swift */; };
-		A616A0571A603E45008CE0F6 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616A0561A603E45008CE0F6 /* CAPSPageMenu.swift */; };
 		A616A0591A603E7E008CE0F6 /* PageMenuOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616A0581A603E7E008CE0F6 /* PageMenuOneViewController.swift */; };
 		A616A05B1A603E8B008CE0F6 /* PageMenuTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616A05A1A603E8B008CE0F6 /* PageMenuTwoViewController.swift */; };
 		A616A0601A603EEB008CE0F6 /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616A05C1A603EEB008CE0F6 /* TestCollectionViewController.swift */; };
@@ -53,6 +52,7 @@
 		A6E252971A60896E0040E60B /* phone_send.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E252961A60896E0040E60B /* phone_send.png */; };
 		A6E252991A608B9E0040E60B /* phone_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E252981A608B9E0040E60B /* phone_down.png */; };
 		A6E2529B1A608BA40040E60B /* phone_receive.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E2529A1A608BA40040E60B /* phone_receive.png */; };
+		F023F29D1E6DBAA7000382EF /* PageMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F023F29C1E6DBAA7000382EF /* PageMenu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,6 @@
 		A616A0461A603D69008CE0F6 /* PageMenuDemoTabbarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PageMenuDemoTabbarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A616A04B1A603D69008CE0F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A616A04C1A603D69008CE0F6 /* PageMenuDemoTabbarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMenuDemoTabbarTests.swift; sourceTree = "<group>"; };
-		A616A0561A603E45008CE0F6 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenu.swift; path = ../../../../Classes/CAPSPageMenu.swift; sourceTree = "<group>"; };
 		A616A0581A603E7E008CE0F6 /* PageMenuOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageMenuOneViewController.swift; sourceTree = "<group>"; };
 		A616A05A1A603E8B008CE0F6 /* PageMenuTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageMenuTwoViewController.swift; sourceTree = "<group>"; };
 		A616A05C1A603EEB008CE0F6 /* TestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		A6E252961A60896E0040E60B /* phone_send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone_send.png; sourceTree = "<group>"; };
 		A6E252981A608B9E0040E60B /* phone_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone_down.png; sourceTree = "<group>"; };
 		A6E2529A1A608BA40040E60B /* phone_receive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone_receive.png; sourceTree = "<group>"; };
+		F023F29C1E6DBAA7000382EF /* PageMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PageMenu.framework; path = "../../PageMenu/build/Debug-iphoneos/PageMenu.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F023F29D1E6DBAA7000382EF /* PageMenu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +143,7 @@
 				A616A0331A603D68008CE0F6 /* PageMenuDemoTabbar */,
 				A616A0491A603D69008CE0F6 /* PageMenuDemoTabbarTests */,
 				A616A0321A603D68008CE0F6 /* Products */,
+				F023F29B1E6DBAA7000382EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,7 +163,6 @@
 				A616A03A1A603D68008CE0F6 /* Main.storyboard */,
 				A616A03D1A603D68008CE0F6 /* Images.xcassets */,
 				A616A03F1A603D68008CE0F6 /* LaunchScreen.xib */,
-				A616A0561A603E45008CE0F6 /* CAPSPageMenu.swift */,
 				A616A0341A603D68008CE0F6 /* Supporting Files */,
 				A616A0581A603E7E008CE0F6 /* PageMenuOneViewController.swift */,
 				A616A05A1A603E8B008CE0F6 /* PageMenuTwoViewController.swift */,
@@ -232,6 +233,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F023F29B1E6DBAA7000382EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F023F29C1E6DBAA7000382EF /* PageMenu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -276,14 +285,17 @@
 		A616A0291A603D68008CE0F6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Niklas Fahl";
 				TargetAttributes = {
 					A616A0301A603D68008CE0F6 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0820;
 					};
 					A616A0451A603D69008CE0F6 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = A616A0301A603D68008CE0F6;
 					};
 				};
@@ -362,7 +374,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A616A0571A603E45008CE0F6 /* CAPSPageMenu.swift in Sources */,
 				A616A05B1A603E8B008CE0F6 /* PageMenuTwoViewController.swift in Sources */,
 				A616A0591A603E7E008CE0F6 /* PageMenuOneViewController.swift in Sources */,
 				A616A0601A603EEB008CE0F6 /* TestCollectionViewController.swift in Sources */,
@@ -428,15 +439,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -470,8 +485,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -479,6 +496,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -488,6 +506,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -498,7 +517,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PageMenuDemoTabbar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "caps.ua.edu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -509,7 +530,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PageMenuDemoTabbar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "caps.ua.edu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -528,7 +551,9 @@
 				);
 				INFOPLIST_FILE = PageMenuDemoTabbarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "caps.ua.edu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PageMenuDemoTabbar.app/PageMenuDemoTabbar";
 			};
 			name = Debug;
@@ -543,7 +568,9 @@
 				);
 				INFOPLIST_FILE = PageMenuDemoTabbarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "caps.ua.edu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PageMenuDemoTabbar.app/PageMenuDemoTabbar";
 			};
 			name = Release;
